@@ -35,6 +35,12 @@
   <link rel="stylesheet" href="css/about.css?ver=2209221241">
 </head>
 <body>
+<style>
+  .error {
+    color: red;
+    font-size: medium;
+  }
+</style>
 
 <div id="skip">
   <a href="#main">Skip to main content</a>
@@ -58,61 +64,61 @@
           <div>
             <label for="contact-email">Your email <span aria-hidden="true">*</span></label>
             <span class="single-line">
-								<input id="contact-email" type="email" required>
-							</span>
+              <input th:field="*{email}" id="contact-email" type="email" required>
+            </span>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error"></p>
           </div>
           <div>
             <label for="contact-name">Your name <span aria-hidden="true">*</span></label>
             <span class="single-line">
-								<input id="contact-name" type="text" required>
-							</span>
+              <input th:field="*{name}" id="contact-name" type="text" required>
+            </span>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="error"></p>
           </div>
           <div>
             <label for="gender">Gender <span aria-hidden="true">*</span></label>
             <span class="single-line">
-                        <select id="gender">
-                            <option value="">Select&hellip;</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-
-                        </select>
-                        <svg width="20" heig
-                             ht="12" viewBox="0 0 20 12" aria-hidden="true">
-                            <path
-                              d="M8.50084 11.4118C9.27833 12.1961 10.5353 12.1961 11.3082 11.4118L19.2553 3.39536C20.0002 2.62049 20.0002 1.39008 19.2553 0.610508C18.4918 -0.183152 17.2347 -0.206634 16.4479 0.563545L9.90683 7.16173L3.36571 0.563545C2.59754 -0.187849 1.37777 -0.187849 0.604941 0.563545C-0.181855 1.33372 -0.205133 2.6017 0.558385 3.39536L8.50084 11.4118Z"
-                              stroke-width="0"/>
-                        </svg>
-                    </span>
+              <select th:field="*{gender}" id="gender">
+                <option value="">Select&hellip;</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <svg width="20" height="12" viewBox="0 0 20 12" aria-hidden="true">
+                <path d="M8.50084 11.4118C9.27833 12.1961 10.5353 12.1961 11.3082 11.4118L19.2553 3.39536C20.0002 2.62049 20.0002 1.39008 19.2553 0.610508C18.4918 -0.183152 17.2347 -0.206634 16.4479 0.563545L9.90683 7.16173L3.36571 0.563545C2.59754 -0.187849 1.37777 -0.187849 0.604941 0.563545C-0.181855 1.33372 -0.205133 2.6017 0.558385 3.39536L8.50084 11.4118Z"
+                      stroke-width="0"/>
+              </svg>
+            </span>
+            <p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" th:errorclass="error"></p>
           </div>
           <div>
             <label for="date-of-birth">Date of birth <span aria-hidden="true">*</span></label>
             <span class="single-line">
-                        <input id="date-of-birth" type="text">
-                    </span>
+              <input th:field="*{dateOfBirth}" id="date-of-birth" type="date">
+            </span>
+            <p th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" th:errorclass="error"></p>
           </div>
           <div>
             <label   for="contact-message">Message </label>
-            <textarea id="contact-message"></textarea>
+            <textarea th:field="*{message}" id="contact-message"></textarea>
+            <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" th:errorclass="error"></p>
           </div>
           <fieldset>
             <legend>Sign up for the Big Star newsletter?<span aria-hidden="true">*</span></legend>
             <div>
-              <input id="newsletter-no" type="radio" name="newsletter" value="no">
+              <input th:field="*{newsLetter}" id="newsletter-no" type="radio" name="newsletter" value="no">
               <label for="newsletter-no">No thanks.</label>
             </div>
             <div>
-              <input id="newsletter-yes" type="radio" name="newsletter"
-                     value="yes">
+              <input th:field="*{newsLetter}" id="newsletter-yes" type="radio" name="newsletter" value="yes">
               <label for="newsletter-yes">Yes please! Notify me about new products and coupons.</label>
             </div>
+            <p th:if="${#fields.hasErrors('newsLetter')}" th:errors="*{newsLetter}" th:errorclass="error"></p>
           </fieldset>
           <fieldset>
             <legend>What are your favorite Big Star Collections?<span aria-hidden="true">*</span></legend>
             <div>
-              <input id="favorite-binaryville" type="checkbox"
-                     name="favorite[]" value="binaryville"/>
-
+              <input th:field="*{favoriteCollection}" id="favorite-binaryville" type="checkbox" name="favorite[]" value="binaryville"/>
               <label for="favorite-binaryville">
                 <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
                   <rect x="0.5" y="0.5" width="21" height="21" rx="3.5"/>
@@ -121,11 +127,9 @@
                 </svg>
                 Binaryville
               </label>
-
             </div>
             <div>
-              <input id="favorite-lil-monsters" type="checkbox"
-                     name="favorite[]" value="lil-monsters">
+              <input th:field="*{favoriteCollection}" id="favorite-lil-monsters" type="checkbox" name="favorite[]" value="lil-monsters">
               <label for="favorite-lil-monsters">
                 <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
                   <rect x="0.5" y="0.5" width="21" height="21" rx="3.5"/>
@@ -136,8 +140,7 @@
               </label>
             </div>
             <div>
-              <input id="favorite-stargazers" type="checkbox"
-                     name="favorite[]" value="stargazers">
+              <input th:field="*{favoriteCollection}" id="favorite-stargazers" type="checkbox" name="favorite[]" value="stargazers">
               <label for="favorite-stargazers">
                 <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
                   <rect x="0.5" y="0.5" width="21" height="21" rx="3.5"/>
@@ -148,8 +151,7 @@
               </label>
             </div>
             <div>
-              <input id="favorite-technivores" type="checkbox"
-                     name="favorite[]" value="technivores">
+              <input th:field="*{favoriteCollection}" id="favorite-technivores" type="checkbox" name="favorite[]" value="technivores">
               <label for="favorite-technivores">
                 <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
                   <rect x="0.5" y="0.5" width="21" height="21" rx="3.5"/>
@@ -159,6 +161,7 @@
                 Technivores
               </label>
             </div>
+            <p th:if="${#fields.hasErrors('favoriteCollection')}" th:errors="*{favoriteCollection}" th:errorclass="error"></p>
           </fieldset>
           <div>
             <button type="submit" class="button lg solid gold">Submit</button>
