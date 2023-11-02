@@ -1,6 +1,7 @@
 package com.example.collectibles.controller;
 
 import com.example.collectibles.beans.User;
+import com.example.collectibles.dao.UserRepository;
 import com.example.collectibles.validators.UserValidator;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -14,16 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private UserValidator userValidator;
+    //private UserValidator userValidator;
+    private UserRepository userRepository;
 
-    public UserController(UserValidator userValidator) {
-        this.userValidator = userValidator;
+    public UserController(UserRepository userRepository) {
+        //this.userValidator = userValidator;
+        this.userRepository = userRepository;
     }
 
-    @InitBinder
-    public void bindUser(WebDataBinder binder) {
-        binder.addValidators(this.userValidator);
-    }
+//    @InitBinder
+//    public void bindUser(WebDataBinder binder) {
+//        binder.addValidators(this.userValidator);
+//    }
 
 
     @GetMapping("/newUser")
@@ -34,6 +37,11 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "register-user";
+        }
+        userRepository.save(user);
+        model.addAttribute("userSaved", true);
         return "register-user";
     }
 }
