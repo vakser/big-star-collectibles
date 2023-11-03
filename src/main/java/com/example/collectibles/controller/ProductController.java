@@ -50,6 +50,6 @@ public class ProductController {
         } catch (InterruptedException ex) {
             throw new RuntimeException();
         }
-        return null;
+        return productRepository.findAll();
     }
 }
