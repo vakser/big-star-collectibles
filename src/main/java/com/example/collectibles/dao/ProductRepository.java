@@ -10,4 +10,7 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product, Integer> {
     @Query("select p from Product p where p.name like %:searchString%")
     List<Product> searchByName(@Param("searchString") String keyword);
+
+    @Query("select p from Product p where p.id = :id")
+    Product searchById(@Param("id") String keyword);
 }
