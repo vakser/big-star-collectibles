@@ -79,7 +79,7 @@
 			<header>
 				<img src="/images/logo-Binaryville.svg" width="180" height="94" alt="Logo of Binaryville">
 				<h1>Explore <span id="name-binaryville">Binaryville</span></h1>
-				<a href="characters/Collection-Binaryville.html" class="button bordered grape" id="more-binaryville" aria-labelledby="more-binaryville name-binaryville">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				<a th:href="@{/seeAll/{charcollection} (charcollection='Collection-Binaryville')}" class="button bordered grape" id="more-binaryville" aria-labelledby="more-binaryville name-binaryville">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
 			</header>
 			<dl class="char-list">
 				<div data-full-img="/images/characters/Binaryville-Delores.svg">
@@ -117,7 +117,7 @@
 			<header>
 				<img src="/images/logo-Lil-Monsters.svg" width="180" height="36" alt="Logo of Lil’ Monsters">
 				<h1>Explore <span id="name-lil-monsters">Lil’ Monsters</span></h1>
-				<a href="characters/Collection-Lilmonsters.html" class="button bordered grape" id="more-lil-monsters" aria-labelledby="more-lil-monsters name-lil-monsters">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				<a th:href="@{/seeAll/{charcollection} (charcollection='Collection-Lilmonsters')}" class="button bordered grape" id="more-lil-monsters" aria-labelledby="more-lil-monsters name-lil-monsters">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
 			</header>
 			<dl class="char-list">
 				<div data-full-img="/images/characters/Lil-Monsters-Blade.png">
@@ -125,28 +125,28 @@
 					<dd class="title">Mobile App Developer</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Lil-Monsters-Blade.png" srcset="/images/characters/avatar-Lil-Monsters-Blade.png 1x, /images/characters/avatar-Lil-Monsters-Blade@2x.png 2x, /images/characters/avatar-Lil-Monsters-Blade@3x.png 3x" width="200" height="200" alt="Avatar of Blade"></dd>
 					<dd class="desc">Blade freelances as a mobile app developer and has built some of the most popular Android and iOS apps used in modern monster society, including the award-winning Monster APPetite, which tracks calorie consumption and activity for the health-conscious monster. In his spare time, he competes in national agility contests with his border collie Winston.</dd>
-					<dd><a href="characters/Character-Detail-Blade.html" id="more-blade" aria-labelledby="more-blade name-blade">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Blade')}" id="more-blade" aria-labelledby="more-blade name-blade">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Lil-Monsters-Mingle.png">
 					<dt id="name-mingle">Mingle</dt>
 					<dd class="title">Senior Data Analyst</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Lil-Monsters-Mingle.png" srcset="/images/characters/avatar-Lil-Monsters-Mingle.png 1x, /images/characters/avatar-Lil-Monsters-Mingle@2x.png 2x, /images/characters/avatar-Lil-Monsters-Mingle@3x.png 3x" width="200" height="200" alt="Avatar of Mingle"></dd>
 					<dd class="desc">Mingle excels at doing twice the work in half the time, with pinpoint accuracy.  These skills serve her well in her role as Senior Data Analyst for an international cloud computing company. She's also got a penchant for ballroom dance, line dancing, and pretty much any kind of activity that lets her groove to music.</dd>
-					<dd><a href="characters/Character-Detail-Mingle.html" id="more-mingle" aria-labelledby="more-mingle name-mingle">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Mingle')}" aria-labelledby="more-mingle name-mingle">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Lil-Monsters-Melville.png">
 					<dt id="name-melville">Melville</dt>
 					<dd class="title">Senior Network Engineer</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Lil-Monsters-Melville.png" srcset="/images/characters/avatar-Lil-Monsters-Melville.png 1x, /images/characters/avatar-Lil-Monsters-Melville@2x.png 2x, /images/characters/avatar-Lil-Monsters-Melville@3x.png 3x" width="200" height="200" alt="Avatar of Melville"></dd>
 					<dd class="desc">Setting up computer networks has always come easily to Melville. In his role as Senior Network Engineer for Landon Hotel, Melville builds complex blueprints for communication networks, a task that requires enormous attention to detail and patience. When not at work, Melville chooses less taxing mental activities, like hiking in the hills near his Silicon Valley home.</dd>
-					<dd><a href="characters/Character-Detail-Melville.html" id="more-melville" aria-labelledby="more-melville name-melville">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Melville')}" id="more-melville" aria-labelledby="more-melville name-melville">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Lil-Monsters-Yodel.png">
 					<dt id="name-yodel">Yodel</dt>
 					<dd class="title">Singer, Performer</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Lil-Monsters-Yodel.png" srcset="/images/characters/avatar-Lil-Monsters-Yodel.png 1x, /images/characters/avatar-Lil-Monsters-Yodel@2x.png 2x, /images/characters/avatar-Lil-Monsters-Yodel@3x.png 3x" width="200" height="200" alt="Avatar of Yodel"></dd>
 					<dd class="desc">Yodel grew up in a family of singers and loud talkers and could never get a word in edgewise. Then his vast talent for yodeling emerged. Now he performs to adoring fans throughout the world, and always has the loudest voice at the dinner table. Incidentally, he's also a loud proponent of net neutrality, and spends countless hours moderating an internet forum devoted solely to that subject.</dd>
-					<dd><a href="characters/Character-Detail-Yodel.html" id="more-yodel" aria-labelledby="more-yodel name-yodel">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Yodel')}" id="more-yodel" aria-labelledby="more-yodel name-yodel">See bio and products</a></dd>
 				</div>
 			</dl>
 		</section><!-- / .collection.lil-monsters -->
@@ -155,7 +155,7 @@
 			<header>
 				<img src="/images/logo-Stargazers.svg" width="119" height="124" alt="Logo of Stargazers">
 				<h1>Explore <span id="name-stargazers">Stargazers</span></h1>
-				<a href="characters/Collection-Stargazers.html" class="button bordered grape" id="more-stargazers" aria-labelledby="more-stargazers name-stargazers">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				<a th:href="@{/seeAll/{charcollection} (charcollection='Collection-Stargazers')}" class="button bordered grape" id="more-stargazers" aria-labelledby="more-stargazers name-stargazers">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
 			</header>
 			<dl class="char-list">
 				<div data-full-img="/images/characters/Stargazers-Charmaine.svg">
@@ -163,28 +163,28 @@
 					<dd class="title">Olympian Water Poloist</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Stargazers-Charmaine.png" srcset="/images/characters/avatar-Stargazers-Charmaine.png 1x, /images/characters/avatar-Stargazers-Charmaine.svg 2x" width="200" height="200" alt="Avatar of Charmaine"></dd>
 					<dd class="desc">Charmaine loves fossils from every society and planet, and helping to piece together the stories they tell of an earlier time. Once completing university studies in paleontology with a minor in swimming arts, Charmaine immediately transitioned to working on the now-famous Dig of Pleoria.</dd>
-					<dd><a href="characters/Character-Detail-Charmaine.html" id="more-charmaine" aria-labelledby="more-charmaine name-charmaine">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Charmaine')}" id="more-charmaine" aria-labelledby="more-charmaine name-charmaine">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Stargazers-Trisaphron.svg">
 					<dt id="name-trisaphron">Trisaphron</dt>
 					<dd class="title">Executive Director, Operations</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Stargazers-Trisaphron.png" srcset="/images/characters/avatar-Stargazers-Trisaphron.png 1x, /images/characters/avatar-Stargazers-Trisaphron.svg 2x" width="200" height="200" alt="Avatar of Trisaphron"></dd>
 					<dd class="desc">Trisaphron earned a masters degree in practical operations from Omerania University after completing a bachelors of science in impractical mathematics. With a keen ability to watch and understand the nuances of cooperation among production robots, Trisaphron never hesitates to jump in and lend a hand or two or three to educate and improve procedures.</dd>
-					<dd><a href="characters/Character-Detail-Trisaphron.html" id="more-trisaphron" aria-labelledby="more-trisaphron name-trisaphron">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Trisaphron')}" aria-labelledby="more-trisaphron name-trisaphron">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Stargazers-Gill.svg">
 					<dt id="name-gill">Gill</dt>
 					<dd class="title">Senior Free-floater</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Stargazers-Gill.png" srcset="/images/characters/avatar-Stargazers-Gill.png 1x, /images/characters/avatar-Stargazers-Gill.svg 2x" width="200" height="200" alt="Avatar of Gill"></dd>
 					<dd class="desc">Gill carries on generations of tradition in his family as a hydrologist specializing in underground reservoirs of aquatic-based planetoids. Of note is his revolutionary studies in the adaptation and accumulation of life in estuaries and cenotes. He volunteers as an instructor in advanced swimming and walking to young Amphibians.</dd>
-					<dd><a href="characters/Character-Detail-Gill.html" id="more-gill" aria-labelledby="more-gill name-gill">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Gill')}" id="more-gill" aria-labelledby="more-gill name-gill">See bio and products</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Stargazers-Mindigo.svg">
 					<dt id="name-mindigo">Mindigo</dt>
 					<dd class="title">Laser Tag Referee</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Stargazers-Mindigo.png" srcset="/images/characters/avatar-Stargazers-Mindigo.png 1x, /images/characters/avatar-Stargazers-Mindigo.svg 2x" width="200" height="200" alt="Avatar of Mindigo"></dd>
 					<dd class="desc">Transportation Technologist Mindigo earned the nickname “MindiGoGo” because of her tireless work in advanced travel and commodity conveyance. After earning a degree in transportation from Amethystopia’s premiere technical college, Mindigo quickly rolled up  through company ranks from cargo hauler to conveyance savant. She is recipient of the coveted Presidential Medal of Moving Stuff.</dd>
-					<dd><a href="characters/Character-Detail-Mindigo.html" id="more-mindigo" aria-labelledby="more-mindigo name-mindigo">See bio and products</a></dd>
+					<dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Mindigo')}" id="more-mindigo" aria-labelledby="more-mindigo name-mindigo">See bio and products</a></dd>
 				</div>
 			</dl>
 		</section><!-- / .collection.stargazers -->
