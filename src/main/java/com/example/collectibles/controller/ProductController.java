@@ -1,17 +1,17 @@
 package com.example.collectibles.controller;
 
+import com.example.collectibles.beans.Filter;
 import com.example.collectibles.beans.Product;
+import com.example.collectibles.beans.ProductCategory;
 import com.example.collectibles.dao.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -40,6 +40,7 @@ public class ProductController {
         DeferredResult<String> deferredResult = new DeferredResult<>();
         asyncExecutor.execute(() -> {
             model.addAttribute("products", getProducts());
+            model.addAttribute("filter", new Filter());
             deferredResult.setResult("product-list");
         });
         return deferredResult;
@@ -71,5 +72,25 @@ public class ProductController {
         cart.put(productId, cart.get(productId) + quantity);
         logger.info("After adding to cart {}", cart);
         return "redirect:/getProductDetails?id=" + productId;
+    }
+
+    @PostMapping("/filterProducts")
+    public String filterProductsBasedOnProductType(@ModelAttribute("filter") Filter filter, Model model) {
+        // get all selected types
+        //get the category_id for every type and query the DB
+        List<Product> filteredProducts = new ArrayList<>();
+        List<String> selectedTypes = filter.getSelectedType();
+        for (String token : selectedTypes) {
+            if (token.equals("ALL")) {
+                productRepository.findAll().forEach(filteredProducts::add);
+                break;
+            } else {
+                int categoryId = ProductCategory.valueOf(token).getId();
+                filteredProducts.addAll(productRepository.searchByCategoryId(categoryId));
+            }
+        }
+        model.addAttribute("products", filteredProducts);
+        model.addAttribute("filter", filter);
+        return "product-list";
     }
 }
