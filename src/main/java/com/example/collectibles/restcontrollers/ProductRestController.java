@@ -2,6 +2,9 @@ package com.example.collectibles.restcontrollers;
 
 import com.example.collectibles.beans.Product;
 import com.example.collectibles.dao.ProductRepository;
+import org.springframework.data.util.Streamable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +18,15 @@ public class ProductRestController {
     }
 
     @GetMapping("/bigstar/api/products")
-    public List<Product> allProducts(){
-        return (List<Product>) productRepository.findAll();
-
+//    public List<Product> allProducts() {
+//        return (List<Product>) productRepository.findAll();
+//    }
+    public ResponseEntity<List<Product>> getAllProducts() {
+        return new ResponseEntity<>(Streamable.of(productRepository.findAll()).stream().toList(), HttpStatus.OK);
     }
 
     @GetMapping("/bigstar/api/products/{id}")
-    public Product getProductById(@PathVariable("id") String id){
+    public Product getProductById(@PathVariable("id") String id) {
         return productRepository.findById(Integer.valueOf(id)).orElseThrow(() -> new ProductNotFoundException(id));
     }
 
